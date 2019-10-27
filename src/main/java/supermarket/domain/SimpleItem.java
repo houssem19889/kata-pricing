@@ -13,6 +13,14 @@ public class SimpleItem implements Item {
 
     private Integer quantity;
 
+    /**
+     * Instantiates a new Simple item.
+     *
+     * @param name the name
+     * @param quantity the quantity
+     * @param price the price
+     * @param number the number
+     */
     public SimpleItem(String name, Integer quantity, Float price, Integer number) {
         super();
         this.name = name;
@@ -21,24 +29,51 @@ public class SimpleItem implements Item {
         this.number = number;
     }
 
+    /**
+     * Instantiates a new Simple item.
+     *
+     * @param name the name
+     * @param price the price
+     * @param quantity the quantity
+     */
     public SimpleItem(String name, Float price, Integer quantity) {
         this.name = name;
         this.price = price;
         this.quantity = quantity;
     }
 
+    /**
+     * Gets number.
+     *
+     * @return the number
+     */
     public Integer getNumber() {
         return number;
     }
 
+    /**
+     * Gets quantity.
+     *
+     * @return the quantity
+     */
     public Integer getQuantity() {
         return quantity;
     }
 
+    /**
+     * Gets price.
+     *
+     * @return the price
+     */
     public Float getPrice() {
         return price;
     }
 
+    /**
+     * Gets name.
+     *
+     * @return the name
+     */
     public String getName() {
         return name;
     }

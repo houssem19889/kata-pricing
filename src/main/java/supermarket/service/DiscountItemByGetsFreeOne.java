@@ -8,6 +8,15 @@ public class DiscountItemByGetsFreeOne extends DiscountItem {
     private Integer freeQuantity;
 
 
+    /**
+     * Instantiates a new Discount item by gets free one.
+     *
+     * @param name the name
+     * @param unitPrice the unit price
+     * @param discountQuantity the discount quantity
+     * @param quantity the quantity
+     * @param freeQuantity the free quantity
+     */
     public DiscountItemByGetsFreeOne(String name, Float unitPrice, Integer discountQuantity, Integer quantity, Integer freeQuantity) {
         this.name = name;
         this.unitPrice = unitPrice;
@@ -16,6 +25,11 @@ public class DiscountItemByGetsFreeOne extends DiscountItem {
         this.freeQuantity = freeQuantity;
     }
 
+    /**
+     * Gets free quantity.
+     *
+     * @return the free quantity
+     */
     public Integer getFreeQuantity() {
         return freeQuantity;
     }
@@ -26,18 +40,20 @@ public class DiscountItemByGetsFreeOne extends DiscountItem {
             return this.quantity * this.unitPrice;
         } else {
             Integer total = this.quantity;
-            Float cost = 0f;
+            Float sum = 0f;
             while (total > 0) {
                 if (total >= this.discountQuantity) {
                     total = total - this.discountQuantity;
-                    cost = cost + (this.discountQuantity * this.unitPrice);
+                    sum = sum + (this.discountQuantity * this.unitPrice);
                     total = (total >= this.freeQuantity ? total = total - this.freeQuantity : 0);
+
                 } else {
-                    cost = cost + (this.getUnitPrice() * total);
+                    sum = sum + (this.getUnitPrice() * total);
                     total = 0;
+
                 }
             }
-            return cost;
+            return sum;
         }
     }
 }

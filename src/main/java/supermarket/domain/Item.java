@@ -5,5 +5,10 @@ package supermarket.domain;
  */
 @FunctionalInterface
 public interface Item {
+    /**
+     * Calculate cost.
+     *
+     * @return the float
+     */
     Float calculateCost();
 }

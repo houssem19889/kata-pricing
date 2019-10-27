@@ -9,6 +9,14 @@ import java.util.function.Function;
  * Created by houssem89 on 27/10/2019.
  */
 public class UnitConvert {
+    /**
+     * Gets convertor function.
+     *
+     * @param inputUnit the input unit
+     * @param outputUnit the output unit
+     * @return the convertor function
+     * @throws IllegalConversionException the illegal conversion exception
+     */
     public  static Function<Float, Float> getConvertorFunction(WeightUnit inputUnit, WeightUnit outputUnit) throws IllegalConversionException {
         if (inputUnit == null) {
             throw new NullPointerException("input unit shouldn't be null.");
