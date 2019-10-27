@@ -1,6 +1,6 @@
-package supermaket.domain;
+package supermarket.domain;
 
-import supermaket.util.Util;
+import supermarket.util.Util;
 
 /**
  * Created by houssem89 on 27/10/2019.

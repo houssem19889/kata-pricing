@@ -1,4 +1,4 @@
-package supermaket.util;
+package supermarket.util;
 
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
