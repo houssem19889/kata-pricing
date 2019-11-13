@@ -68,6 +68,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/supermarket/domain/ItemDiscount.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/main/java/supermarket/domain/SimpleItem.java">
           <value>
             <set />
@@ -94,6 +99,16 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/src/main/java/supermarket/service/DiscountItemByPrice.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/supermarket/service/DiscountItemService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/supermarket/service/IDiscountItemService.java">
           <value>
             <set />
           </value>

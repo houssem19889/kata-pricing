@@ -1,10 +1,12 @@
 package supermarket.domain;
 
+import java.math.BigDecimal;
+
 /**
  * Created by houssem89 on 27/10/2019.
  */
 public class WeightPrice {
-    private final Float price;
+    private final BigDecimal price;
     private final WeightUnit unit;
 
     /**
@@ -13,7 +15,7 @@ public class WeightPrice {
      * @param price the price
      * @param unit the unit
      */
-    public WeightPrice(Float price, WeightUnit unit) {
+    public WeightPrice(BigDecimal price, WeightUnit unit) {
         this.price = price;
         this.unit = unit;
     }
@@ -43,7 +45,7 @@ public class WeightPrice {
      *
      * @return the price
      */
-    public Float getPrice() {
+    public BigDecimal getPrice() {
         return price;
     }
 

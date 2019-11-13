@@ -5,6 +5,9 @@ import supermarket.domain.WeightPrice;
 import supermarket.domain.WeightUnit;
 import supermarket.util.Util;
 
+import java.math.BigDecimal;
+import java.text.ParseException;
+
 import static supermarket.util.UnitConvert.getConvertorFunction;
 
 /**
@@ -19,9 +22,10 @@ public class WeightPriceService {
      * @param unit the unit
      * @return the single price
      * @throws IllegalConversionException the illegal conversion exception
+     * @throws IllegalConversionException the illegal conversion exception
      */
-    public static float getSinglePrice(WeightPrice weightPrice, Float quantity, WeightUnit unit) throws IllegalConversionException {
-        return Util.formateCost(weightPrice.getPrice() * getConvertorFunction(unit, weightPrice.getUnit()).apply(quantity));
+    public static BigDecimal getSinglePrice(WeightPrice weightPrice, BigDecimal quantity, WeightUnit unit) throws IllegalConversionException, ParseException {
+        return Util.formateCost((weightPrice.getPrice().multiply(getConvertorFunction(unit, weightPrice.getUnit()).apply(quantity))));
     }
 
     /**
@@ -34,15 +38,15 @@ public class WeightPriceService {
      * @param quantityDiscount the quantity discount
      * @return the discount price
      * @throws IllegalConversionException the illegal conversion exception
+     * @throws IllegalConversionException the illegal conversion exception
      */
-    public static float getDiscountPrice(WeightPrice weightPrice, Float quantity, WeightUnit unit, Float priceDiscount,Float quantityDiscount) throws IllegalConversionException {
-        Float realQuantity = getConvertorFunction(unit, weightPrice.getUnit()).apply(quantity);
-        if (realQuantity < quantityDiscount) {
+    public static BigDecimal getDiscountPrice(WeightPrice weightPrice, BigDecimal quantity, WeightUnit unit, BigDecimal priceDiscount, BigDecimal quantityDiscount) throws IllegalConversionException, ParseException {
+        BigDecimal realQuantity = getConvertorFunction(unit, weightPrice.getUnit()).apply(quantity);
+        if (realQuantity.intValue() < quantityDiscount.intValue()) {
             return getSinglePrice(weightPrice, quantity, unit);
         }
-
-        int div = (int) (realQuantity / quantityDiscount);
-        int rest = (int) (realQuantity % quantityDiscount);
-        return Util.formateCost(div * priceDiscount + rest * weightPrice.getPrice());
+        BigDecimal div = (realQuantity.divide(quantityDiscount));
+        BigDecimal rest = BigDecimal.valueOf((realQuantity.intValue() % quantityDiscount.intValue()));
+        return Util.formateCost((div.multiply(priceDiscount)).add(rest.multiply(weightPrice.getPrice())));
     }
 }
